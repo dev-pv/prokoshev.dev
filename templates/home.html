@@ -1,0 +1,123 @@
+{% extends 'base_bstrap.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block extra%}
+<script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+    
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+    
+          // Store hash
+          var hash = this.hash;
+    
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+       
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+</script>
+<div class="animated fadeInUp" style="position: absolute; left: 10%; top: 33%; width: 55%; border-right: solid #fd5d6a;">
+    <div class="animated fadeInUp" style="font-size: 70px;">
+        <p class="title text-uppercase fw-bold" style="line-height: 0.8; color:#222222;">vladimir prokoshev</p>
+    </div>
+    <div class="animated2 fadeInUp" style="font-size: 50px;">
+        <p class="text-uppercase title-text fw-light" style="line-height: 0.8; color: #434242;">DevOps Engineer</p>
+    </div>
+    <!-- <div class="animated3 fadeInUp" style="font-size: 20px;">
+        <p class="text-uppercase fw-light" style="line-height: 0.8; color: #434242;">checkout my <a href="#section2">skills</a> </p>
+    </div> -->
+    <div class="animated3 fadeInUp">
+        <a href="/static/Resume-Vladimir-Prokoshev.pdf" class="btn btn-primary" target="_blank">Download Resume (PDF)</a>
+    </div>
+</div>
+
+<div class="blur-in" style="position: absolute; top: 34vh; left: 68%; margin: 0; padding: 0;">
+    <img src="/static/images/devops-img.png" class="resize" width="200px" alt="">
+</div>
+
+<div class="box" id="section2" style="padding: 8%; margin: 0; font-size: large;">
+    <p class="fw-light p-text" style="text-align: center; color: #eaeaea;"><b>ABOUT ME</b></p>
+    <p class="fw-light p-text" style="line-height: 1.1; color: #eaeaea;">
+    I have been working in the IT industry for over 10 years. As a leading network engineer, <br>
+    I have participated in infrastructure projects across various business sectors, including<br>
+    finance, healthcare, and real estate. Some of my completed projects include creating a<br>
+    network connection with a processing provider for a bank, designing a data center network, and<br>
+    deploying a secure VPN network for 100 branch offices of a company.<br>
+    Some time ago, I immersed myself into working with Python-based automation to perform routine<br> 
+    network administrator tasks, and then in software life cycle automation and now I am fully<br>
+    focused on <b>DevOps.</b><br>
+    <br>
+    <a href="#section3" class="btn btn-primary">SKILLS</a>
+    </p>
+</div>
+
+<div class="disp_no" style="position: absolute; top: 129vh; right: 21%; background:#e1e1e1; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+  <img src="/static/images/profile.jpg" class="disp_no" width="250px" alt="" style="padding: 10px;">
+  <div class="disp_no" style="text-align: center;">
+    <p class="fw-light p-text"><b></b></p>
+  </div>
+</div>
+
+<div class="box" id="section3" style="padding: 12%; margin: 0; font-size: large;">
+  <p class="fw-semibold p-text" style="line-height: 1.1; color: #222222;">
+  Here are a few technologies and products that I have worked with:<br>
+  - Git, Github, Gitlab<br>
+  - Gitlab CI<br>
+  - Linux (Ubuntu, CentOS)<br>
+  - Docker, Docker-compose<br>
+  - Kubernetes, Helm, ArgoCD<br>
+  - Ansible, Terraform<br>
+  - Yandex Cloud<br>
+  - PostrgreSQL, MongoDB<br>
+  - Python, css, html<br>
+  - NginX<br>
+  - Cisco Systems Products (ISR, ASR, Catalyst, ASA, Firepower, Nexus)<br>
+  - Zabbix<br>
+<br>
+<a href="#section4" class="btn btn-primary">Contact me</a>
+</p>
+</div>
+
+<div class="box2" id="section4" style="position: absolute; margin: auto;">
+  <div class="no" style="width: 120px; background:#e1e1e1; position: relative; top: 2%; margin: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+    <img src="/static/images/profile.jpg" class="no" width="120px" alt="" style="padding: 5px; margin: auto;">
+    <div class="no" style="text-align: center;">
+      <p class="fw-light p-text" style="line-height: 1; padding: 5px; margin: 0;"></p>
+    </div>
+  </div>
+  <div data-bs-theme="light" class="" style="position: relative; width: 70%; margin: auto; padding: 7%;">
+    <form action="/home/" method="post">
+    {% csrf_token %}
+      <div class="center my-3" style="color: #eaeaea;">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input type="text" class="form-control text-white bg-transparent" id="name" name="name" placeholder="Your Name">
+      </div>
+      <div class="center my-3" style="color: #eaeaea;">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control text-white bg-transparent" id="email" name="email" placeholder="name@example.com">
+      </div>
+      <div class="center my-3" style="color: #eaeaea;">
+        <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
+        <textarea class="form-control text-white bg-transparent" id="feedback" name="feedback" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div class="new" style="position: absolute; text-align: center; color: #eaeaea; z-index: 10; top: 90vh; height: 10vh; width: 100%; background: #333; padding: 2%; margin: auto;">
+    <p class="fw-light">Built by <span style="color: #65fe8c;">Vladimir Prokoshev</span> </p>
+  </div>
+</div>
+ {% endblock extra%}

@@ -1,0 +1,68 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .btn-primary {
+            --bs-btn-color:#fff;
+            --bs-btn-bg: #fd5d6a;
+            --bs-btn-border-color:bg-transparent !important;
+            --bs-btn-hover-color:#fff !important;
+            --bs-btn-hover-bg:#626262 !important;
+            --bs-btn-hover-border-color: bg-transparent !important;
+            --bs-btn-focus-shadow-rgb:49,132,253;
+            --bs-btn-active-color:#fff;
+            --bs-btn-active-bg:#fd5d6a !important;
+            --bs-btn-active-border-color:#fd5d6a !important;
+            --bs-btn-active-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color:#fff;
+            --bs-btn-disabled-bg:#fd5d6a;
+            --bs-btn-disabled-border-color:#0d6efd
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-bar" style="font-size: 30px;">
+    <a href="https://gitlab.com/dev-pv" class="social p-text"><i class="fa fa-github"></i></a> 
+    <a href="https://gitlab.com/dev-pv" class="social p-text"><i class="fa fa-gitlab"></i></a>
+    <a href="https://www.linkedin.com/in/vladimir-prokoshev-77447212a/" class="social p-text"><i class="fa fa-linkedin"></i></a>
+    <a href="#" class="social p-text"><i class="fa fa-instagram"></i></a> 
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+</nav>
+<div id="section1" style="position: absolute; top: 0;"></div>
+<div class="animated fadeInDown" id="navbar">
+    <a href="#section1" class="animated3 fadeInDown" style="position: absolute; top: 0; left: 8%;">Home</a>
+    <!-- <a href="#section1"><img src="/static/images/main-logo.png" width="70px" style="position: absolute; top: 0; margin: 3px; left: 8%;" alt=""></a> -->
+    <a href="#section4" class="animated2 fadeInDown">Contact</a>
+    <a href="#section3" class="animated fadeInDown">Skills</a>
+    <a href="#section2" class="animated3 fadeInDown">About</a>
+</div>
+{% block extra %}{% endblock extra %}
+<script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-80px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+</script>
+</body>
+</html>
