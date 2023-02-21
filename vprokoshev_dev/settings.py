@@ -26,7 +26,7 @@ PROJECT_DIR = os.path.join(BASE_DIR, "vprokoshev_dev", "home")
 SECRET_KEY = 'django-insecure-yybm862wta+aj4praexa(lk2qdtj$4q-90!-3y$gm_iph1r9-('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home'
+    'home',
+    'vprokoshev_dev'
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,12 @@ WSGI_APPLICATION = 'vprokoshev_dev.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'prokoshev_dev_db',
+       'USER': 'prokoshev_dev',
+       'PASSWORD': 'prokoshev_dev',
+       'HOST': 'postgres',
+       'PORT': '5432',
     }
 }
 
@@ -122,9 +127,7 @@ USE_TZ = True
 #PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

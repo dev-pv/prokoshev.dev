@@ -354,7 +354,7 @@
 
   .icon-bar {
     position: fixed;
-    top: 50%;
+    top: 50vh;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -366,7 +366,7 @@
     text-align: center;
     padding: 10px;
     transition: all 0.3s ease;
-    color: black;
+    color: rgb(0, 0, 0);
   }
   
   .icon-bar a:hover {
